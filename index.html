@@ -46,8 +46,8 @@
 	</header>
 
 	<!-- Begin Body -->
-	<div class="container container_new">
-		<!--<div class="row">-->
+	<div class="container">
+		<div class="row">
 			<div class="col-md-12">
 				<div id="information" class="alert alert-info" role="alert" align="center" >
 					<h3><font color="black">Identifying Knowledge Types and Developing a Reasoning Framework for Solving the Winograd Schema Challenge</font> </h3>
@@ -61,11 +61,12 @@
 					<h4>In this work, we identified 12 commonsense knowledge types such that about 97% of the Winograd Schema Challenge problems can be answered correctly by using at-least one instance of knowledge belonging one of the types. We also defined a logical reasoning framework to handle 10 out of 12 knowledge types, covering about 85% of the overall corpus. Later we provided an empirical evaluation of our reasoning framework by automatically extracting the required knowledge instances for 100 WSC problems and correctly solving them. </h4>
 				</div>
 			</div>
+		</div>
 	</div>
 
 			<div class="container">
-			    <div class="row">
-				<div class="col-md-3 alert alert-success" style="border:solid green 2px">
+			    <div class="row" style="display:flex">
+				<div class="col-md-3 alert alert-success" style="border:solid 2px" style="flex:1">
 				    <h4><b>Knowledge Types Identification</b></h4>
 				    <ul>
 					<li><a href="#knowlegde_types_detail">Knowledge Types in Detail</a></li>
@@ -75,10 +76,7 @@
 				<div class="col-md-3 alert alert-success" style="border:solid green 2px">
 				    <h4><b>Reasoning Framework</b></h4>
 				    <ul>
-					<li>Reasoning Framework in Detail</li>
-					<ul>
-						<li><a href="#reasoning_asp_proofs">Reasoning Theory, Answer Set Programming Implementation, 							and Proof of Implementation Correctness</a></li>
-					</ul>
+					<li><a href="#reasoning_asp_proofs">Reasoning Theory, Answer Set Programming Implementation, 							and Proof of Implementation Correctness</a></li>
 				    </ul>
 				</div>
 				<div class="col-md-3 alert alert-success" style="border:solid green 2px">
@@ -91,8 +89,8 @@
 				   <h4><strong>Evaluation And Conclusion</strong></h4>
 				   <ul>
 					<li><a href="#experiment_setup">Experiment Setup</a></li>
-					<li><a href="#">Detailed Results</a></li>
-					<li><a href="#">Error Analysis</a></li>
+					<li><a href="#detailed_results">Detailed Results</a></li>
+					<!--<li><a href="#">Error Analysis</a></li>-->
 					<li><a href="#conclusion">Conclusion</a></li>
 				    </ul>
 				</div>
@@ -316,6 +314,93 @@ The approach was demonstrated to work on <b>eight Winograd Schema Challenge prob
 	<br>
 	<br>
 	<br>
+	<div class="container alert alert-info" id="detailed_results">
+	  <h2>Detailed Results</h2>  
+	  <br>
+	  <p>Below is the table showing detailed results of our system for each Knowledge Type defined in this work.</p>
+<table class="table table-striped table-bordered" id="comparison_table" style="border:1px solid black">
+    <thead>
+      <tr>
+        <th>Knowledge Type</th>
+        <th>Total Number of Winograd Problems</th>
+        <th>Required Knoweledge Found</th>
+        <th>Reasoning Framework Answered Correctly</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>Knowledge Type 1</b></td>
+        <td>17</td>
+	<td>14</td>
+        <td>14</td>
+      </tr>
+      <tr>
+        <td><b>Knowledge Type 2</b></td>
+        <td>58</td>
+	<td>9</td>
+        <td>9</td>
+      </tr>
+      <tr>
+        <td><b>Knowledge Type 3</b></td>
+        <td>38</td>
+	<td>14</td>
+        <td>14</td>
+      </tr>
+      <tr>
+        <td><b>Knowledge Type 4</b></td>
+        <td>21</td>
+	<td>3</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td><b>Knowledge Type 5</b></td>
+        <td>8</td>
+	<td>1</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td><b>Knowledge Type 6</b></td>
+        <td>25</td>
+	<td>13</td>
+        <td>13</td>
+      </tr>
+      <tr>
+        <td><b>Knowledge Type 7</b></td>
+        <td>1</td>
+	<td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td><b>Knowledge Type 8</b></td>
+        <td>1</td>
+	<td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td><b>Knowledge Type 9</b></td>
+        <td>61</td>
+	<td>46</td>
+        <td>46</td>
+      </tr>
+      <tr>
+        <td><b>Knowledge Type 10</b></td>
+        <td>3</td>
+	<td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td><b>Total</b></td>
+        <td>273</td>
+	<td>100</td>
+        <td>100</td>
+      </tr>
+    </tbody>
+  </table>
+	</div>
+
+	<br>
+	<br>
+	<br>
 	<div class="container alert alert-info" id="conclusion">
 		<h2>Conclusion</h2>  
 	  	<br>
@@ -323,47 +408,5 @@ The approach was demonstrated to work on <b>eight Winograd Schema Challenge prob
 <br> 
 <p>We performed an empirical evaluation of the reasoning framework by correctly solving 100 (more than currently available systems, see <a href="#results_table">results table</a>) WSC examples with minimal manual intervention in knowledge extraction system. Though the fully-automatic extraction of the required knowledge still remains a problem to be addressed, this work takes us one step closer to solving it by making important contributions towards identifying the kinds of knowledge needed and presenting a reasoning framework that is robust enough to handle the knowledge types.</p>
 	</div>
-<!--
-<div class="alert alert-success">
-  Following are the major contributions of this work.
-<br>
-<br>
-<ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#knowledge_identification"><font color="green">Knowledge Types Identification</font></a></li>
-  <li><a data-toggle="tab" href="#reasoning_framework"><font color="green">Logical Reasoning Framework</font></a></li>
-</ul>
-
-<div class="tab-content">
-  <div id="knowledge_identification" class="tab-pane fade in active">
-	<div id="knowledge_type"align="center">
-	<h2>Knowledge Type Identification: Overview</h2>
-	</div>
-
-	<br>
-	<br>
-
-	<div id="all_know_types" align="center">
-	<h2>Knowledge Types Identified in this Work</h2>
-	<iframe id="fred" style="border:1px solid #666CCC" title="PDF in an i-Frame" src="test.pdf" align="center" frameborder="1" scrolling="auto" height="1100px" width="80%" ></iframe>
-	</div>
-  </div>
-
-  
-  <div id="reasoning_framework" class="tab-pane fade">
-<div id="reasoning_framework_det" align="center">
-	
-	<iframe id="fred" style="border:1px solid #666CCC" title="PDF in an i-Frame" src="test.pdf#zoom=125" align="center" frameborder="1" scrolling="auto" height="1100px" width="80%" ></iframe>
-	</div>
-  </div>
-</div>
-</div>
-
-	
-					
-			</div>
-		</div>
-	</div>-->
-
 </body>
 </html>
-
