@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="Bootply" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+<title>Anonymous</title>
+
+<!-- Icon for the web-page -->
+<!--<link href="css/img/icon2.png" rel="icon" type="image/x-icon" />-->
+
+<!-- Bootstrap Core CSS -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+<!-- script references -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+</head>
+<body>
+	<header class="navbar navbar-inverse navbar-static-top" role="banner">
+		<div class="container container_new">
+			<div class="navbar-header"  align="center">
+				<button class="navbar-toggle" type="button" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<!--<a href="http://bioai8core.fulton.asu.edu/wsc/" class="navbar-brand title">Winograd Schema Challenge (WSC)</a>-->
+				<a class="navbar-brand title" ><font color="white">Identifying Knowledge Types and Developing a Reasoning Framework for Solving the Winograd Schema Challenge</font></a>
+			</div>
+			<!-- <nav class="collapse navbar-collapse" role="navigation">
+				<ul class="nav navbar-nav" id="navigation">
+					<li><a href="/kparser/about.jsp" title="About Knowledge Parser">About</a></li>
+					<li><a href="/kparser/api.jsp" title="API for Knowledge Parser">API</a></li>
+					<li><a href="#" title="Contact Us">Contact</a></li>
+				</ul>
+			</nav> -->
+		</div>
+	</header>
+
+	<!-- Begin Body -->
+	<div class="container container_new">
+		<!--<div class="row">-->
+			<div class="col-md-12">
+				<div id="information" class="alert alert-info" role="alert" align="center" >
+					<h3><font color="black">Identifying Knowledge Types and Developing a Reasoning Framework for Solving the Winograd Schema Challenge</font> </h3>
+				</div>
+
+				<div id="information" class="alert alert-info" role="alert" align="justify" >
+					<h4>Recently, there have been many works towards solving the Winograd Schema Challenge. These works mention the need of knowledge in solving the challenge but do not focus on identifying the different types of knowledge so that specific extraction techniques can be implemented to extract each such knowledge or/and type specific reasoning framework could be implemented to handle a particular type of knowledge. The major works are based on quasi-probabilistic correlation calculus, relevance theory and an ensemble of natural language processing techniques. </h4>
+					<br>
+					<h4>Though most of the works mention the requirement of knowledge in solving the problem, there has been very little work towards identification of the types of knowledge needed to correctly solve the challenge, so that different extraction intuitions/techniques can be implemented to extract each such knowledge or/and different reasoning framework could be used to handle a particular type of knowledge. </h4>
+					<br>
+					<h4>In this work, we identified 12 commonsense knowledge types such that about 97% of the Winograd Schema Challenge problems can be answered correctly by using at-least one instance of knowledge belonging one of the types. We also defined a logical reasoning framework to handle 10 out of 12 knowledge types, covering about 85% of the overall corpus. Later we provided an empirical evaluation of our reasoning framework by automatically extracting the required knowledge instances for 100 WSC problems and correctly solving them. </h4>
+				</div>
+			</div>
+	</div>
+
+			<div class="container">
+			    <div class="row">
+				<div class="col-md-3 alert alert-success" style="border:solid green 2px">
+				    <h4><b>Knowledge Types Identification</b></h4>
+				    <ul>
+					<li><a href="#knowlegde_types_detail">Knowledge Types in Detail</a></li>
+					<li><a href="#knowledge_types_cat_examples">Categorization of Winograd Problems in Knowledge Types</a></li>
+				    </ul>
+				</div>
+				<div class="col-md-3 alert alert-success" style="border:solid green 2px">
+				    <h4><b>Reasoning Framework</b></h4>
+				    <ul>
+					<li>Reasoning Framework in Detail</li>
+					<ul>
+						<li><a href="#reasoning_asp_proofs">Reasoning Theory, Answer Set Programming Implementation, 							and Proof of Implementation Correctness</a></li>
+					</ul>
+				    </ul>
+				</div>
+				<div class="col-md-3 alert alert-success" style="border:solid green 2px">
+				    <h4><strong>Related Works</strong></h4>
+				    <ul>
+					<li><a href="#related_work">Detailed Comparison with Related Works</a></li>
+				    </ul>
+				</div>
+				<div class="col-md-3 alert alert-success" style="border:solid green 2px">
+				   <h4><strong>Evaluation And Conclusion</strong></h4>
+				   <ul>
+					<li><a href="#experiment_setup">Experiment Setup</a></li>
+					<li><a href="#">Detailed Results</a></li>
+					<li><a href="#">Error Analysis</a></li>
+					<li><a href="#conclusion">Conclusion</a></li>
+				    </ul>
+				</div>
+			    </div>
+			</div>
+	<div class="container alert alert-info" id="knowlegde_types_detail" align="center">
+		<h2>Knowledge Types in Detail</h2>
+		<iframe id="fred" style="border:1px solid #666CCC" title="PDF in an i-Frame" src="knowledge_types.pdf" align="center" frameborder="1" scrolling="auto" height="1100px" width="80%" ></iframe>
+	</div>
+
+
+	<br>
+	<br>
+	<br>
+	<div class="container" align="center" id="knowledge_types_cat_examples">
+	  <h2>Categorization of Winograd Problems in Knowledge Types</h2>            
+	  <table class="table table-striped table-bordered" >
+	    <thead>
+	      <tr>
+		<th>Knowledge Type</th>
+		<th>Intuitive Meaning</th>
+		<th>Number of WSC Problems</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr>
+		<td>Knowledge Type 1</td>
+		<td><b>A Property Prevents an Event:</b> if a property P prevents an event E from executing then an entity X associated with P also participates in E</td>
+		<td><a href="type1.pdf" target="_blank">17</a></td>
+	      </tr>
+	      <tr>
+		<td>Knowledge Type 2</td>
+		<td><b>A Sequence of Events Causes an Event:</b> if a sequence of one or more events E<sub>seq</sub> causes an event E then an entity that participates in an event E<sub>i</sub> in E<sub>seq</sub> also participates in E</td>
+		<td><a href="type2.pdf" target="_blank">58</a></td>
+	      </tr>
+	      <tr>
+		<td>Knowledge Type 3</td>
+		<td><b>A Property Causes an Event:</b> if a property P causes an event E then an entity associated with P also participates in E</td>
+		<td><a href="type3.pdf" target="_blank">38</a></td>
+	      </tr>
+	      <tr>
+		<td>Knowledge Type 4</td>
+		<td><b>An Event Causes a Property:</b> if an event E causes a property P then an entity that participates in E is also associated with P</td>
+		<td><a href="type4.pdf" target="_blank">21</a></td>
+	      </tr>
+	      <tr>
+		<td>Knowledge Type 5</td>
+		<td><b>A Sequence of Events Prevents an Event:</b> if a sequence of one or more events E<sub>seq</sub> prevents an event (E) then an entity that participates in an event E<sub>i</sub> in E<sub>seq</sub> also participates in E</td>
+		<td><a href="type5.pdf" target="_blank">8</a></td>
+	      </tr>
+	      <tr>
+		<td>Knowledge Type 6</td>
+		<td><b>A Sequence of Events is Followed By an Event:</b> if a sequence of one or more events E<sub>seq</sub> is followed by an event E then an entity that participates in an event E<sub>i</sub> in E<sub>seq</sub> also participates in E</td>
+		<td><a href="type6.pdf" target="_blank">25</a></td>
+	      </tr>
+	      <tr>
+		<td>Knowledge Type 7</td>
+		<td>An Event is followed by a Property & if an event E is followed by a property P then an entity X that participates in E is same as an entity Y associated with P</td>
+		<td><a href="type7.pdf" target="_blank">1</a></td>
+	      </tr>
+	      <tr>
+		<td>Knowledge Type 8</td>
+		<td><b>A Property is followed by an Event:</b> if a property P is followed by an event E then an entity associated with P also participates in E</td>
+		<td><a href="type8.pdf" target="_blank">1</a></td>
+	      </tr>
+	      <tr>
+		<td>Knowledge Type 9</td>
+		<td><b>A Co-occurring Set of Events and Properties:</b> if a set of events (E<sub>1</sub>,..,E<sub>n</sub>) and properties (P<sub>1</sub>,..,P<sub>m</sub>) occur together, and they do not explicitly cause or prevent one another, then an entity X associated with an event (E) or a property (P) in the set also participates in an event (E<sub>y</sub>) or it is associated with a property (P<sub>y</sub>) in the set. Here, E<sub>y</sub>&ne;E and P<sub>y</sub>&ne;P. Also, if n=0 then m>0 and if m=0 then n>0</td>
+		<td><a href="type9.pdf" target="_blank">61</a></td>
+	      </tr>
+	      <tr>
+		<td>Knowledge Type 10</td>
+		<td><b>A set of Properties causes a Property</b> if a set of one or more properties (P<sub>1</sub>,..,P<sub>m</sub>) causes another property (P) to occur then an entity associated with a property (P<sub>i</sub>) in the set is also associated with the P</td>
+		<td><a href="type10.pdf" target="_blank">3</a></td>
+	      </tr>
+	      <tr>
+		<td>Knowledge Type 11</td>
+		<td><b>Specific Events, Properties and Entities:</b> this type consists of relationships between specific events, properties and entities. For example, <i>A boy owns a bunk bed</i>. Here, the specific entity <i>boy</i> is the owner of another specific entity <i>bunk bed</i></td>
+		<td><a href="type11.pdf" target="_blank">10</a></td>
+	      </tr>
+	      <tr>
+		<td>Knowledge Type 12</td>
+		<td><b>Probable Propositions:</b> this type consists of a comparative statement between the existence probabilities of two different propositions. For example, <i>Prob(Sheep looks like a dog)</i> > <i>Prob(Shepherd looks like a dog)</i></td>
+		<td><a href="type12.pdf" target="_blank">10</a></td>
+	      </tr>
+	      <tr>
+		<td><b>Mixed Type</b></td>
+		<td>this type requires more than one instances of knowledge from any of the other 12 types</td>
+		<td><a href="mixedType.pdf" target="_blank">20</a></td>
+	      </tr>
+	      <tr>
+		<td><b>Uncategorized Problems</b></td>
+		<td>These are the problems that could not be categorized in any of the knowledge types.</td>
+		<td><a href="uncategorized.pdf" target="_blank">7</a></td>
+	      </tr>
+	      <tr>
+		<td><b>Ambiguous Problems</b></td>
+		<td>There is ambiguity in these problems. Even humans can not answer them without an assumption.</td>
+		<td><a href="ambiguous.pdf" target="_blank">8</a></td>
+	      </tr>
+	      <tr>
+		<td><b>No Knowledge Needed</b></td>
+		<td>There problems do not require any extra knowledge. However they do require more involved semantic parsing</td>
+		<td><a href="noKnowledge.pdf" target="_blank">3</a></td>
+	      </tr>
+	      <tr>
+		<td><b>Total</b></td>
+		<td></td>
+		<td><b>291</b></td>
+	      </tr>
+	    </tbody>
+	  </table>
+	</div>
+
+	<br>
+	<br>
+	<br>
+	<!--<div class="container alert alert-info" id="reasoning_framework">
+	  <h2>Reasoning Framework in Detail</h2>  
+	  <br>-->
+	  <div class="container alert alert-info" id="reasoning_asp_proofs" align="center">
+		<h2>Reasoning Framework in Detail</h2> 
+		<iframe id="fred" style="border:1px solid #666CCC" title="PDF in an i-Frame" src="reasoning_asp_proofs.pdf" align="center" frameborder="1" scrolling="auto" height="1100px" width="80%" ></iframe>
+	  </div>
+	  
+<!--	</div>-->
+	<br>
+	<br>
+	<br>
+	<div class="container alert alert-info" id="related_work">
+		<h2>Detailed Comparison with Related Works</h2>  
+	  	<br>
+	  	<p>The Winograd Schema Challenge is a type of co-reference resolution task. There has been a lot of work already done by the NLP community on the topic (including <a href="http://www.aclweb.org/anthology/D10-1048">a multi-pass sieve for coreference resolution</a>, <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.67.5331&rep=rep1&type=pdf">Anaphora resolution: a multi-strategy approach<a> and <a href="https://aaai.org/ocs/index.php/AAAI/AAAI17/paper/view/14995">Machine Learning for Entity Coreference Resolution</a>). However the requirement to use background knowledge makes WSC different and the other approaches inapplicable.</p>
+		<br>		
+		<p>Since 2012, various works have been presented to solve the challenge. These works can be broadly divided into two types,</p>
+		<ul> 
+			<li> the ones that provide a reasoning theory and assume that the required knowledge is already available (including <a href="https://www.cs.utexas.edu/~vl/papers/wsc_SS7.pdf">reasoning about correlation</a> and <a href="https://www.aaai.org/ocs/index.php/KR/KR14/paper/view/7958">formalizing relevance theory in knowledge graphs</a> ), and</li>
+		     <li> the ones that develop end-end systems to tackle the challenge (entirely or a subset) (including <a href="http://www.aclweb.org/anthology/D12-1071">an ensemble of NLP techniques</a>, <a href="https://www.ijcai.org/proceedings/2017/0326.pdf">neural network and knowledge based approach</a>, <a href="http://www.aaai.org/ocs/index.php/IJCAI/IJCAI15/paper/download/11096/10846">a semantic parsing and logical reasoning based approach</a>), and <a href="https://www.cs.utexas.edu/~vl/papers/wsc_SS7.pdf">a reasoning on conditional beliefs based approach</a></li></ul>
+		<p>Though all of these works mention the need of knowledge, most of them mainly focus on the reasoning aspect of the problem. Clearly, there has not been much work on identifying what kinds of knowledge is actually needed to cover a significant chunk of WSC problems. Another issue is that the current approaches do not cover a large number of WSC problems (see <a href="#comparison_table">Comparison Table</a>). However, in this work we try to address both of these issues by identifying knowledge types which cover about 98% of WSC problems, and by providing a framework that can process a knowledge instance successfully. While comparing numbers, our evaluation results show that our approach is able to solve more WSC problems correctly than the current systems (see <a href="#comparison_table">Comparison Table</a> below). The details about the results mentioned in the comparison table are also mentioned below the table.</p>
+
+<br>
+<p>A Table showing comparison with other works</p>
+<table class="table table-striped table-bordered" id="comparison_table" style="border:1px solid black">
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Number of correctly Answered Winograd Problems</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>Method 1: </b><a href="https://www.aaai.org/ocs/index.php/KR/KR14/paper/view/7958">formalizing relevance theory in knowledge graphs</a></td>
+        <td>8</td>
+      </tr>
+      <tr>
+        <td><b>Method 2: </b><a href="https://www.cs.utexas.edu/~vl/papers/wsc_SS7.pdf">reasoning about correlation</a></td>
+        <td>72</td>
+      </tr>
+      <tr>
+        <td><b>Method 3: </b><a href="http://www.aaai.org/ocs/index.php/IJCAI/IJCAI15/paper/download/11096/10846">semantic parsing and logical reasoning based approach</a></td>
+        <td>49</td>
+      </tr>
+      <tr>
+        <td><b>Method 4: </b><a href="https://www.ijcai.org/proceedings/2017/0326.pdf">neural network and knowledge based approach</a></td>
+        <td>49</td>
+      </tr>
+      <tr>
+        <td><b>Method 5: </b><a href="http://www.cse.unsw.edu.au/~cschwering/commonsense-2017b.pdf">a reasoning on conditional beliefs based approach</a></td>
+        <td>85</td>
+      </tr>
+      <tr>
+        <td><b>This Work</b></td>
+        <td>100</td>
+      </tr>
+    </tbody>
+  </table>
+
+<br>
+<br>
+<p>The comparison table shown above enumerates different methods on solving the Winograd Schema Challenge and the number of WSC problems correctly solved by them. However, the evaluation criteria and the experimental setup for each of the methods are very differnt from each other. Below are the evaluation details for each of them.</p>
+<ul>
+	<li><b>Method 1: </b> In this work, the author presented an approach to solve the Winograd Schema Challenge problems by using relevance theory. Following are the steps performed to solve a problem in this work.
+<ul><li>the input problem in natural language was translated to a syntactic graph (by using <a href="http://nlp.stanford.edu:8080/corenlp/process">Stanford Dependency Parser</a>).</li>
+<li>the knowledge needed to solve the problem was written manually in the similar format (dependency parser format).</li>
+<li>the final answer is deduced from the representations of the problem and the required knowledge by using relevance theory on graphs.</li>
+</ul>
+The approach was demonstrated to work on <b>eight Winograd Schema Challenge problems</b> and all of them were correctly answered.
+</li>
+<br>
+	<li><b>Method 2: </b> In this work a correlation calculus was proposed to justify correct answers of the Winograd Schema Challenge problems. This work also <b>assumes that the required knowledge is already available</b> in the desired format. As part of evaluation, the authors annotated the first 100 problems in the WSC list according to their system's format. Out of 100, 72 were found to be satisfying the criteria of the work. This work mentions that the solutions of those 72 problems could be justified by their correlation calculus based system (with the help of manually generated knowledge).</li>
+<br>
+	<li><b>Method 3: </b>This was an end to end approach. It focussed on a <b>subset of Wingrad Schema Challenge problems</b> which require certain kinds of knowledge. The approach was mainly based on representing a given problem as a semantic graph and use search engimes to automatically extract knowledge for solving the problem. As part of evaluations, 71 winograd examples were found to satisfy the criteria defioned in the work. <b>Out of 71 problems, 49 were correctly answered, 4 were incorrectly answered and the remaining 18 were not answered</b> by their system</li>
+<br>
+	<li><b>Method 4: </b>This work addressed a <b>set of Winograd Schema Challenge problems</b> by proposing an end to end method for knowledge acquisition and a general neural association model. As part of evaluation, 70 Winograd Schema Challenge problems were identified to satisfy the criteria of the approach. <b>49 out of 70 problems (70%) were correctly answered</b>.</li>
+<br>
+	<li><b>Method 5: </b> This work proposed to employ a logic for conditional beliefs that is capable of dealing with incomplete or even inconsistent information. It does so by formalising the observation that humans often reason by picturing different contingencies of what the world could be like, and then choose to believe what is thought to be most plausible. As part of evaluation, the work was evaluated on the entire Winograd Schema Challenge corpus (288 problems). Out of 288, the system was able to make decisions for 159 problems under best conditions and it was able to <b>correctly answer 85 problems (an accuracy of 53.5%)</b>. 
+</li>
+</ul>
+	</div>
+	<br>
+	<br>
+	<br>
+	<div class="container alert alert-info" id="experiment_setup">
+	  <h2>Experiment Setup</h2>  
+	  <br>
+	  <p>The reasoning framework defined in this work relies on two assumptions, (1) a WSC problem (sentence and question) can be automatically translated into the desired formal representation, and (2) the required knowledge instances can be automatically extracted. In this section, we show the results of an empirical evaluation of the reasoning framework by automating the above two assumptions to a great extent with the help of an off the shelf semantic parsing tool and an in-house knowledge extraction system. </p>
+<br>
+<p>We used a freely available semantic parser named K-Parser (made freely available by the authors on <a href="https://github.com/arpit7123/K-Parser-JAR">github</a>) for translating the input sentences and questions into the desired formal representation.</p>
+<br>
+<p>We developed a rule based knowledge extractor for this work. The basic idea of knowledge extraction is inspired from the knowledge hunting work mentioned in the <a href="http://www.aaai.org/ocs/index.php/IJCAI/IJCAI15/paper/download/11096/10846">IJCAI 2015 paper on Winograd Schema Challenge</a>. There are aspects of our system,</p>
+
+<ul>
+<li>creating search queries from the WSC problems</li> 
+<li>using a search engine to collect the sentences which satisfy the queries</li>
+<li>extract knowledge from the collected sentences, in case they contain any</li>
+</ul>
+<br>
+<p>Because of the limited availability of search engine access and the main focus of this work not being the automatic knowledge extraction, the first two aspects were carried out manually. The collected sentences are then passed one by one to an in-house rule based knowledge extraction module. The module uses semantics (from K-Parser) of the input sentence to find the patterns which satisfy the knowledge types (<a href="#knowlegde_types_detail">Type 1 to 10</a>) handled by our reasoning framework.</p>
+	</div>
+
+	<br>
+	<br>
+	<br>
+	<div class="container alert alert-info" id="conclusion">
+		<h2>Conclusion</h2>  
+	  	<br>
+	  	<p>This paper focuses on the identification of different types of knowledge and development of a reasoning framework for solving the Winograd Schema Challenge. We started this work with an intention to inspire the knowledge acquisition community to focus on the extraction of different types of knowledge that is needed to solve the Winograd Schema Challenge. In the process, we identified and defined 12 such knowledge types, covering about 98% of the WSC corpus. We also developed a reasoning framework which can handle 10 out of 12 knowledge types and generates the answer to a problem if it is entailed by the problem and a given knowledge instance.<p>
+<br> 
+<p>We performed an empirical evaluation of the reasoning framework by correctly solving 100 (more than currently available systems, see <a href="#results_table">results table</a>) WSC examples with minimal manual intervention in knowledge extraction system. Though the fully-automatic extraction of the required knowledge still remains a problem to be addressed, this work takes us one step closer to solving it by making important contributions towards identifying the kinds of knowledge needed and presenting a reasoning framework that is robust enough to handle the knowledge types.</p>
+	</div>
+<!--
+<div class="alert alert-success">
+  Following are the major contributions of this work.
+<br>
+<br>
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#knowledge_identification"><font color="green">Knowledge Types Identification</font></a></li>
+  <li><a data-toggle="tab" href="#reasoning_framework"><font color="green">Logical Reasoning Framework</font></a></li>
+</ul>
+
+<div class="tab-content">
+  <div id="knowledge_identification" class="tab-pane fade in active">
+	<div id="knowledge_type"align="center">
+	<h2>Knowledge Type Identification: Overview</h2>
+	</div>
+
+	<br>
+	<br>
+
+	<div id="all_know_types" align="center">
+	<h2>Knowledge Types Identified in this Work</h2>
+	<iframe id="fred" style="border:1px solid #666CCC" title="PDF in an i-Frame" src="test.pdf" align="center" frameborder="1" scrolling="auto" height="1100px" width="80%" ></iframe>
+	</div>
+  </div>
+
+  
+  <div id="reasoning_framework" class="tab-pane fade">
+<div id="reasoning_framework_det" align="center">
+	
+	<iframe id="fred" style="border:1px solid #666CCC" title="PDF in an i-Frame" src="test.pdf#zoom=125" align="center" frameborder="1" scrolling="auto" height="1100px" width="80%" ></iframe>
+	</div>
+  </div>
+</div>
+</div>
+
+	
+					
+			</div>
+		</div>
+	</div>-->
+
+</body>
+</html>
+
